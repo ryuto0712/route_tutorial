@@ -11,19 +11,26 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => FirstPage());
       case '/second':
         // Validation of correct data type
+
+        return MaterialPageRoute(
+          builder: (_) => SecondPage(),
+        );
+      case '/three':
+        // Validation of correct data type
         if (args is String) {
           return MaterialPageRoute(
-            builder: (_) => SecondPage(
-                  data: args,
-                ),
+            builder: (_) => ThreePage(
+              data: args,
+            ),
           );
         }
+
         // If args is not of the correct type, return an error page.
         // You can also throw an exception while in development.
         return _errorRoute();
-      default:
-        // If there is no such named route in the switch statement, e.g. /third
-        return _errorRoute();
+      // default:
+      //   // If there is no such named route in the switch statement, e.g. /third
+      //   return _errorRoute();
     }
   }
 

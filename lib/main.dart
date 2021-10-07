@@ -38,7 +38,6 @@ class FirstPage extends StatelessWidget {
               onPressed: () {
                 Navigator.of(context).pushNamed(
                   '/second',
-                  arguments: 'Hello from the first page!',
                 );
               },
             )
@@ -52,9 +51,44 @@ class FirstPage extends StatelessWidget {
 class SecondPage extends StatelessWidget {
   // This is a String for the sake of an example.
   // You can use any type you want.
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Routing App'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Text(
+              'Second Page',
+              style: TextStyle(fontSize: 50),
+            ),
+            Text("aaa"),
+            RaisedButton(
+              child: Text('Go to second'),
+              onPressed: () {
+                Navigator.of(context).pushNamed(
+                  '/three',
+                  arguments: 'ヒャッホ',
+                );
+              },
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class ThreePage extends StatelessWidget {
+  // This is a String for the sake of an example.
+  // You can use any type you want.
   final String data;
 
-  SecondPage({
+  ThreePage({
     Key key,
     @required this.data,
   }) : super(key: key);
@@ -70,7 +104,7 @@ class SecondPage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Text(
-              'Second Page',
+              '３番目のPage',
               style: TextStyle(fontSize: 50),
             ),
             Text(
